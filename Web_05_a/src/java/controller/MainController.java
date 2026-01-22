@@ -6,21 +6,23 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.UserDAO;
+import model.UserDTO;
 
 /**
  *
  * @author se184
  */
-public class LogoutController extends HttpServlet {
+public class MainController extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      *
      * @param request servlet request
      * @param response servlet response
@@ -29,13 +31,19 @@ public class LogoutController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        if(session!=null){
-            // huy bo toan bo noi dung session
-            session.invalidate();
+        String action = request.getParameter("action");
+        String url = "LoginController";
+
+        if ("login".equals(action)) {
+            url = "LoginController";
+        } else if ("logout".equals(action)) {
+            url = "LogoutController";
         }
-        String url = "login.jsp";
-        response.sendRedirect(url);
+
+        // Chuyen trang
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -40,7 +40,7 @@ public class LoginController extends HttpServlet {
 
             UserDAO udao = new UserDAO();
             UserDTO user = udao.login(txtUsername, txtPassword);
-            System.out.println(user);
+            
             if (user != null) {
                 url = "a.jsp";
                 session.setAttribute("user", user);

@@ -1,0 +1,17 @@
+<%-- 
+    Document   : E403
+    Created on : Jan 19, 2026, 10:05:46 AM
+    Author     : se184
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Login failed! You have been banned!</h1>
+    </body>
+</html>

@@ -32,11 +32,11 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
-        String url = "login";
-
-        if (action.equals("login")) {
+        String url = "login.jsp";
+         
+        if(action.equals("login")){
             url = "LoginController";
-        } else if (action.equals("logout")) {
+        }else if(action.equals("logout")){
             url = "LogoutController";
         }
 
